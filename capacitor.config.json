@@ -1,0 +1,12 @@
+{
+  "appId": "com.kmans106.deepschool",
+  "appName": "Deep School",
+  "webDir": "dist",
+  "backgroundColor": "#01121a",
+  "ios": {
+    "contentInset": "never",
+    "scrollEnabled": false,
+    "backgroundColor": "#01121a",
+    "preferredContentMode": "mobile"
+  }
+}
