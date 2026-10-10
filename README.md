@@ -63,6 +63,7 @@ Open the printed URL in a WebGPU browser: Chrome or Edge 113+, or Safari
 | Parameter | Effect |
 | --- | --- |
 | `?n=4096` | number of fish (default 3072 on phones, 6144 on desktop) |
+| `?round=20` | shorten the Hunt round to 20 seconds (testing) |
 | `?panel` | show the original look-tuning panel (H to hide) |
 | `?shot=backlit` | lock the Zen camera to one shot (`orbit`, `glide`, `backlit`, `low`) |
 | `?debug` | expose internals on `window.__debug` |

@@ -18,7 +18,7 @@ const MAX_PITCH = 0.8;
 const ARENA_RADIUS = 52;
 const BASE_FOV = 62;
 
-export function createHunt( { renderer, boids, camera, predator, controls, hud } ) {
+export function createHunt( { renderer, boids, camera, predator, controls, hud, roundTime = ROUND_TIME } ) {
 
 	const u = boids.uniforms;
 	const pos = new THREE.Vector3();
@@ -31,7 +31,7 @@ export function createHunt( { renderer, boids, camera, predator, controls, hud }
 	let yaw = 0, pitch = 0, yawRate = 0, bank = 0, speed = CRUISE_SPEED;
 	let stamina = 1, dashing = false, dashLock = false, dashAmount = 0;
 	let running = false;
-	let timeLeft = ROUND_TIME, elapsed = 0;
+	let timeLeft = roundTime, elapsed = 0;
 	let score = 0, combo = 0, comboTimer = 0, bestCombo = 0, caught = 0, goldCaught = 0;
 	let onEnd = null;
 
@@ -114,7 +114,7 @@ export function createHunt( { renderer, boids, camera, predator, controls, hud }
 		pitch = 0; yawRate = 0; bank = 0;
 		speed = CRUISE_SPEED;
 		stamina = 1; dashing = false; dashLock = false; dashAmount = 0;
-		timeLeft = ROUND_TIME; elapsed = 0;
+		timeLeft = roundTime; elapsed = 0;
 		score = 0; combo = 0; comboTimer = 0; bestCombo = 0; caught = 0; goldCaught = 0;
 		updateForward();
 
@@ -224,7 +224,7 @@ export function createHunt( { renderer, boids, camera, predator, controls, hud }
 		u.predPos.value.copy( pos ).addScaledVector( fwd, 0.6 );
 		u.predMouth.value.copy( pos ).addScaledVector( fwd, PREDATOR_LENGTH * 0.5 + 0.15 );
 		// the school grows warier as the round goes on
-		u.predFearRadius.value = 6 + Math.min( elapsed / ROUND_TIME, 1 ) * 2.5;
+		u.predFearRadius.value = 6 + Math.min( elapsed / roundTime, 1 ) * 2.5;
 		u.predFear.value = 1;
 		u.eatEnabled.value = elapsed > 0.4 ? 1 : 0;
 		readback();

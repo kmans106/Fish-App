@@ -101,7 +101,9 @@ async function main() {
 
 	const hud = createHud();
 	const controls = createControls( renderer.domElement, $( 'stick' ), $( 'knob' ), $( 'dash' ) );
-	const hunt = createHunt( { renderer, boids, camera, predator, controls, hud } );
+	// ?round=20 shortens the round (handy for testing)
+	const roundTime = parseFloat( params.get( 'round' ) ) > 0 ? parseFloat( params.get( 'round' ) ) : undefined;
+	const hunt = createHunt( { renderer, boids, camera, predator, controls, hud, roundTime } );
 
 	function show( name ) {
 

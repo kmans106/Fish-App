@@ -52,7 +52,8 @@
     .btn:active { transform: scale(0.96); background: rgba(20, 70, 85, 0.6); }
     .btn.primary { background: rgba(30, 120, 140, 0.55); border-color: rgba(190, 245, 255, 0.45); font-weight: 500; }
     .btn small { display: block; font-size: 11px; letter-spacing: 0.06em; color: var(--dim); font-weight: 300; margin-top: 2px; }
-    .btns { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .btns { display: flex; flex-direction: column; align-items: stretch; gap: 14px; }
+    .btns .btn { flex: 1 1 0; }
     /* short landscape phones: tighter layout, buttons side by side */
     @media (max-height: 480px) {
       .screen { gap: 8px; }
